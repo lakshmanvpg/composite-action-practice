@@ -1,4 +1,4 @@
-name: Composite Action Demo
+name: Composite Action Demo1
 
 on:
   push:

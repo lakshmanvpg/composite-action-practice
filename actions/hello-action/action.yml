@@ -8,7 +8,7 @@ runs:
   steps:
     - name: Print Hello
       shell: bash
-      run: echo "Hello Reddy"
+      run: echo "Hello Reddy1"
 
     - name: Print Message
       shell: bash
