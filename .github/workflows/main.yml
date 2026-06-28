@@ -1,0 +1,22 @@
+name: Composite Action Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  demo:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Composite Action
+
+        uses: ./.github/actions/my-composite-action
+
+        with:
+          username: Lakshman
