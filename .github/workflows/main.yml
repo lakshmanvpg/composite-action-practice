@@ -1,4 +1,4 @@
-name: Composite Action Workflow
+name: Expressions Practice
 
 on:
   workflow_dispatch:
@@ -11,12 +11,14 @@ jobs:
 
     steps:
 
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - name: Repository Name
+        run: echo "${{ github.repository }}"
 
-      - name: Run Composite Action
+      - name: Branch Name
+        run: echo "${{ github.ref_name }}"
 
-        uses: ./.github/actions/my-composite-action
+      - name: Triggered By
+        run: echo "${{ github.actor }}"
 
-        with:
-          username: Lakshman
+      - name: Event Name
+        run: echo "${{ github.event_name }}"
