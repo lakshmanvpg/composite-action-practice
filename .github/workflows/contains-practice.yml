@@ -8,7 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check Feature Branch
+      - name: Print Branch Name
+        run: echo "Current branch is ${{ github.ref_name }}"
+
+      - name: Feature Branch Found
         if: contains(github.ref_name, 'feature')
 
-        run: echo "Feature branch detected"
+        run: echo "Condition TRUE → Branch contains 'feature'"
+
+      - name: Feature Branch Not Found
+        if: ${{ !contains(github.ref_name, 'feature') }}
+
+        run: echo "Condition FALSE → Branch does not contain 'feature'"
