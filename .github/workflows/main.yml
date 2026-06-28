@@ -1,24 +1,15 @@
-name: Expressions Practice
+name: Composite Action Demo
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
-
-  demo:
-
+  test:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Repository Name
-        run: echo "${{ github.repository }}"
-
-      - name: Branch Name
-        run: echo "${{ github.ref_name }}"
-
-      - name: Triggered By
-        run: echo "${{ github.actor }}"
-
-      - name: Event Name
-        run: echo "${{ github.event_name }}"
+      - name: Run Composite Action
+        uses: ./.github/actions/hello-action
