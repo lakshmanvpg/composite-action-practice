@@ -1,0 +1,12 @@
+name: Context Practice
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Repository Name
+        run: echo "${{ github.repository }}"
