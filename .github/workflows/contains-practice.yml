@@ -1,0 +1,14 @@
+name: Contains Practice
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Feature Branch
+        if: contains(github.ref_name, 'feature')
+
+        run: echo "Feature branch detected"
