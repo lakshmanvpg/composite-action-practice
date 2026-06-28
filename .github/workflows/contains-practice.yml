@@ -1,4 +1,4 @@
-name: Contains Practice
+name: Commit Message Check
 
 on:
   push:
@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Branch Name
-        run: echo "Current branch is ${{ github.ref_name }}"
+      - name: Print Commit Message
+        run: echo "Commit message is '${{ github.event.head_commit.message }}'"
 
-      - name: Feature Branch Found
-        if: contains(github.ref_name, 'feature')
+      - name: Deploy Message Found
+        if: contains(github.event.head_commit.message, 'deploy')
 
-        run: echo "Condition TRUE → Branch contains 'feature'"
+        run: echo "Condition TRUE → deploy word found"
 
-      - name: Feature Branch Not Found
-        if: ${{ !contains(github.ref_name, 'feature') }}
+      - name: Deploy Message Not Found
+        if: ${{ !contains(github.event.head_commit.message, 'deploy') }}
 
-        run: echo "Condition FALSE → Branch does not contain 'feature'"
+        run: echo "Condition FALSE → deploy word not found"
